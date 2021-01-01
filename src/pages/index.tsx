@@ -25,6 +25,6 @@ export default () => (
         </p>
       </div>
     </div>
-     <Features />
-     </>
+   
+  </>
 )
