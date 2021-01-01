@@ -17,9 +17,7 @@ export default () => (
       />
       <h1>そらのNotionBlog</h1>
 
-      <Features />
-
-      <div className="explanation">
+       <div className="explanation">
         <p>
         日頃の気付きや学びなど
         思いついたことをつらつら書いていくブログ
@@ -27,5 +25,9 @@ export default () => (
         </p>
       </div>
     </div>
+      
+      <Features />
+
+     
   </>
 )
