@@ -6,19 +6,17 @@ import contactStyles from '../styles/contact.module.css'
 
 import GitHub from '../components/svgs/github'
 import Twitter from '../components/svgs/twitter'
-import Envelope from '../components/svgs/envelope'
-import LinkedIn from '../components/svgs/linkedin'
 
 const contacts = [
   {
     Comp: Twitter,
     alt: 'twitter icon',
-    link: 'https://twitter.com/Sky_MouthValley',
+    link: 'https://twitter.com/_ijjk',
   },
   {
     Comp: GitHub,
     alt: 'github icon',
-    link: 'https://github.com/skyheart13579sora',
+    link: 'https://github.com/ijjk',
   },
 ]
 
