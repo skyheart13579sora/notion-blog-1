@@ -26,8 +26,4 @@ export default () => (
       </div>
     </div>
       
-      <Features />
-
-     
-  </>
 )
