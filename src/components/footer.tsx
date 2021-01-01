@@ -3,7 +3,7 @@ import ExtLink from './ext-link'
 export default () => (
   <>
     <footer>
-      <span Powered by>
+      <span>
       Powered by {' '}
         <ExtLink href="https://github.com/ijjk/notion-blog">
           Notion Blog
