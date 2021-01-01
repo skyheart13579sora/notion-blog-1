@@ -4,16 +4,13 @@ export default () => (
   <>
     <footer>
       <span>
-        <br>
-        Powered by {' '}
-
+      Powered by {' '}
         <ExtLink href="https://github.com/ijjk/notion-blog">
           Notion Blog
         </ExtLink>
-        </br>
       </span>
       
-      <span>
+      <span class = "br">
       Copyright © 2021 {' '}
         <ExtLink href="https://twitter.com/Sky_MouthValley">
           Sora Taniguchi
@@ -21,5 +18,6 @@ export default () => (
         . All Rights Reserved.
       </span>
     </footer>
+    
   </>
 )
