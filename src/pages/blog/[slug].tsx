@@ -2,6 +2,7 @@ import Link from 'next/link'
 import fetch from 'node-fetch'
 import { useRouter } from 'next/router'
 import Header from '../../components/header'
+import Footer from '../../components/footer'
 import Heading from '../../components/heading'
 import components from '../../components/dynamic'
 import ReactJSXParser from '@zeit/react-jsx-parser'
@@ -28,7 +29,7 @@ export async function getStaticProps({ params: { slug }, preview }) {
         redirect: '/blog',
         preview: false,
       },
-      unstable_revalidate: 5,
+      revalidate: 5,
     }
   }
   const postData = await getPageData(post.id)
@@ -64,7 +65,7 @@ export async function getStaticProps({ params: { slug }, preview }) {
       post,
       preview: preview || false,
     },
-    unstable_revalidate: 10,
+    revalidate: 10,
   }
 }
 
@@ -138,7 +139,7 @@ const RenderPost = ({ post, redirect, preview }) => {
 
   return (
     <>
-      <Header titlePre={post.Page} />
+      <Header titlePre={post.Page + ' | Works'} />
       {preview && (
         <div className={blogStyles.previewAlertContainer}>
           <div className={blogStyles.previewAlert}>
@@ -151,13 +152,14 @@ const RenderPost = ({ post, redirect, preview }) => {
         </div>
       )}
       <div className={blogStyles.post}>
-        <h1>{post.Page || ''}</h1>
+        <a href="/">
+          <p>← Back</p>
+        </a>
+        <h1 className={blogStyles.title}>{post.Page || ''}</h1>
         {post.Authors.length > 0 && (
           <div className="authors">By: {post.Authors.join(' ')}</div>
         )}
-        {post.Date && (
-          <div className="posted">Posted: {getDateStr(post.Date)}</div>
-        )}
+        {post.Date && <div className="posted">{getDateStr(post.Date)}</div>}
 
         <hr />
 
@@ -258,11 +260,11 @@ const RenderPost = ({ post, redirect, preview }) => {
 
               const isImage = type === 'image'
               const Comp = isImage ? 'img' : 'video'
-              const useWrapper = block_aspect_ratio && !block_height
+              const useWrapper = Boolean(block_aspect_ratio)
               const childStyle: CSSProperties = useWrapper
                 ? {
-                    width: '100%',
-                    height: '100%',
+                    width: '90%',
+                    height: '90%',
                     border: 'none',
                     position: 'absolute',
                     top: 0,
@@ -272,7 +274,7 @@ const RenderPost = ({ post, redirect, preview }) => {
                     border: 'none',
                     height: block_height,
                     display: 'block',
-                    maxWidth: '100%',
+                    maxWidth: '90%',
                   }
 
               let child = null
@@ -310,6 +312,7 @@ const RenderPost = ({ post, redirect, preview }) => {
                   <div
                     style={{
                       paddingTop: `${Math.round(block_aspect_ratio * 100)}%`,
+                      paddingLeft: '5%',
                       position: 'relative',
                     }}
                     className="asset-wrapper"
@@ -396,17 +399,6 @@ const RenderPost = ({ post, redirect, preview }) => {
               }
               break
             }
-            case 'equation': {
-              if (properties && properties.title) {
-                const content = properties.title[0][0]
-                toRender.push(
-                  <components.Equation key={id} displayMode={true}>
-                    {content}
-                  </components.Equation>
-                )
-              }
-              break
-            }
             default:
               if (
                 process.env.NODE_ENV !== 'production' &&
@@ -419,6 +411,7 @@ const RenderPost = ({ post, redirect, preview }) => {
           return toRender
         })}
       </div>
+      <Footer />
     </>
   )
 }
