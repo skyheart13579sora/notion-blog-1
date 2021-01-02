@@ -4,7 +4,7 @@ export default () => (
   <>
     <footer>
       <div>
-      <span>
+        <span>
         Powered by {' '}
           <ExtLink href="https://github.com/ijjk/notion-blog">
             Notion Blog
