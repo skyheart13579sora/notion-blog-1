@@ -4,7 +4,7 @@
   --gap: 1rem;
   --gap-double: 2rem;
 
-  --bg: #000;
+  --bg: #fff;
   --fg: #000;
   --accents-1: #111;
   --accents-2: #333;
@@ -31,6 +31,7 @@ body {
   font-size: 20px;
 }
 
+/*
 body {
   min-height: 100vh;
   background: var(--bg);
@@ -44,9 +45,10 @@ body {
   background-attachment: fixed;
   background-size: 50px 50px;
 
-  /* Hack */
+  // Hack 
   overflow-x: hidden;
 }
+*/
 
 code[class*='language-'],
 pre[class*='language-'] {
