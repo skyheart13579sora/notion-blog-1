@@ -31,7 +31,6 @@ body {
   font-size: 20px;
 }
 
-/*
 body {
   min-height: 100vh;
   background: var(--bg);
@@ -45,10 +44,9 @@ body {
   background-attachment: fixed;
   background-size: 50px 50px;
 
-  // Hack 
+  /* Hack */
   overflow-x: hidden;
 }
-*/
 
 code[class*='language-'],
 pre[class*='language-'] {
